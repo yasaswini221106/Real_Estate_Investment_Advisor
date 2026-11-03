@@ -22,12 +22,12 @@ st.markdown(
 # --------------------------------------------------
 # LOAD DATA
 # --------------------------------------------------
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_PATH = BASE_DIR / "DATA" / "india_housing_prices_cleaned.csv"
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "india_housing_prices_cleaned.zip"
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(DATA_PATH)
+    return pd.read_csv(DATA_PATH, compression="zip") 
 
 try:
     df = load_data()
